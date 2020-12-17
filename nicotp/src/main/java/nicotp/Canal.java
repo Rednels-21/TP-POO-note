@@ -25,15 +25,16 @@ public class Canal implements Comparable, Destinataire {
 	}
 	
 	public void ecrireMessage(Utilisateur user, Message msg) throws ActionNonAutoriseeException {
-		List<Role> roles = new ArrayList<Role>(); // roles de l'utilisateur JE SAIS
+		List<Role> roles = new ArrayList<Role>(); // roles de l'utilisateur 
 		Boolean ouinon = false;
 		
 		for (Map.Entry<Role, List<Utilisateur>> mapentry : mapping_role_utilisateurs.entrySet()) {
-	           if(mapentry.getValue().equals(user)) {
+	           if(mapentry.getValue().contains(user)) {
 	        	   roles.add(mapentry.getKey());
 	           }
 	    }
 		  
+		historiques.add(msg);
 		for (Role role : roles) {
 			if(mapping_role_habilitations.get(role).contains(Habilitation.ECRITURE)) {
 				ouinon = true;
