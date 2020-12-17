@@ -12,4 +12,21 @@ public class Message implements Destinataire {
 	public String getTexte() {
 		return texte;
 	}
+
+	public Utilisateur getAuteur() {
+		return auteur;
+	}
+	
+	public void setAuteur(Utilisateur auteur) {
+		this.auteur = auteur;
+	}
+	
+	public Destinataire getDestinataire() {
+		return destinataire;
+	}
+	
+	public void setDestinataire(Destinataire destinataire) {
+		this.destinataire = destinataire;
+	}
+
 }
